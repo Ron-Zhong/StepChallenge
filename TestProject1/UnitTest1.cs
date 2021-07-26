@@ -69,7 +69,7 @@ namespace TestProject1
         int getEligiblePoints(DateTime stepDate, int steps)
         {
             var record = Context.StepPoints
-                .Where(x => stepDate > x.EffectiveDate && steps >= x.TargetSteps)
+                .Where(x => stepDate >= x.EffectiveDate && steps >= x.TargetSteps)
                 .OrderByDescending(x => x.MileStone)
                 .OrderByDescending(x => x.EffectiveDate)
                 .FirstOrDefault();
